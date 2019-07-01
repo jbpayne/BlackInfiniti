@@ -1,35 +1,131 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <model>Vehicle</model>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
-
-    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+    <title>Update Vehicles</title>
+  <link href="https://fonts.googleapis.com/css?family=Cardo|Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
+
 <body>
-    <div class="container">
+  <header>
+    <div style="display:flex;flex-direction:row;justify-content:center;">
+      <div class="column cardo" style="padding:15px 30px;">
+        <h3>Black Infiniti</h3>
+      </div>
+      <div class="column container-logo" style="padding-top:8px">
+        <img class="logo" src="/img/logo.png"></img>
+      </div>
+      <div class="column cardo" style="padding:15px 30px;">
+        <h3>Employee Portal</h3>
+      </div>
+    </div>
+  </header>
 
-        <h1>Update Vehicle Inventory</h1>
+  <navbar class="fixed bg-dark row"
+    style="text-align: center; color:white;padding:9px 5px 0;;margin:0;font-weight: normal">
+    <div>
+      <h4 style="font-weight: normal"><a href="http://localhost:5500/client/dashboard/src/full-sale.html" style="color:white;">Manage Sale Requests</a></h4>
+    </div>
+    <div>
+      <h4 style="font-weight: normal"><a href="http://localhost:8080/inventory" style="color:white;">Vehicle Inventory</a></h4>
+    </div>
+    <div>
+      <h4 style="font-weight: normal"><a href="http://localhost:8080/client" style="color:white;">View/Update Clients</a></h4>
+    </div>
+    <div>
+      <h4><a class="btn btn-outline" style="color:white; border-color:white;padding:0 0.6rem;position:relative;top:-0.2rem;" href="index.html">Log
+          out</a></h4>
+    </div>
+  </navbar>
 
+  <main class="cardo">
+      <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Update Vehicle</h2>
+        </div>
+      </div>
         <form class="form-group" action="/vehicleEdit" th:action="@{/vehicleEdit}" method="post">
             <input th:type="hidden" name="stockNumber" th:field="${vehicle.stockNumber}" />
-            <div class="form-group">
-                <label for="color">Color</label>
-                <input type="text" class="form-control" id="color" th:field="${vehicle.color}" />
+      <div class="row">
+            <div class="form-group col-md-2">
+                <label for="isActive">Active</label>
+                <input type="text" class="form-control" id="isActive" th:field="${vehicle.isActive}" />
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-2">
+                <label for="modelYear">Year</label>
+                <input type="text" class="form-control" id="modelYear" th:field="${vehicle.modelYear}" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="make">Make</label>
+                <input type="text" class="form-control" id="make" th:field="${vehicle.make}" />
+            </div>
+            <div class="form-group col-md-2">
                 <label for="model">Model</label>
                 <input type="text" class="form-control" id="model" th:field="${vehicle.model}" />
             </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+            <div class="form-group col-md-4">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" th:field="${vehicle.color}" />
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-4">
+                <label for="vin">VIN</label>
+                <input type="text" class="form-control" id="vin" th:field="${vehicle.vin}" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="retailPrice">Retail Price</label>
+                <input type="text" class="form-control" id="retailPrice" th:field="${vehicle.retailPrice}" />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="wholesaleCost">Wholesale Cost</label>
+                <input type="text" class="form-control" id="wholesaleCost" th:field="${vehicle.wholesaleCost}" />
+            </div>
+            <div class="form-group col-md-2">
+                <label for="vehicleType">Type</label>
+                <input type="text" class="form-control" id="vehicleType" th:field="${vehicle.vehicleType}" />
+            </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-4">
+                <label for="isLeasable">Leasable</label>
+                <input type="text" class="form-control" id="isLeasable" th:field="${vehicle.isLeasable}" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="leaseTerm">Lease Term</label>
+                <input type="text" class="form-control" id="leaseTerm" th:field="${vehicle.leaseTerm}" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="maxMilesPerYear">Miles/Year</label>
+                <input type="text" class="form-control" id="maxMilesPerYear" th:field="${vehicle.maxMilesPerYear}" />
+            </div>
+            </div>
+      <div class="row">
+            <button type="submit" class="btn btn-outline-secondary col-md-4">Save</button>
+            <a href="#" th:href="@{/vehicle}" class="btn btn-outline-secondary col-md-4" role="button">Cancel</a>
+            </div>
         </form>
-
+      </div>
     </div>
+    </div>
+  </main>
 
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
-</html>

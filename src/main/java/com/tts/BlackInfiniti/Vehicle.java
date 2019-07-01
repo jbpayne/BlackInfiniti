@@ -11,7 +11,7 @@ public class Vehicle {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VEHICLE_SEQ")
 	private Long stockNumber;
 
-	private int wholeSaleCost; // Declares Dealer Wholesale price as integer (represents US Dollars)
+	private int wholesaleCost; // Declares Dealer Wholesale price as integer (represents US Dollars)
 	private int retailPrice; // Declares Dealer Retail price as integer (represents US Dollars)
 	private int modelYear; // Declares vehicle model year as integer (Takes 4 digit integer)
 	private String make; // Declares vehicle make as String
@@ -27,9 +27,9 @@ public class Vehicle {
 	public Vehicle() {
 	}
 
-	Vehicle(int wholeSaleCost, int retailPrice, int modelYear, String make, String model, String color, String vin,
+	Vehicle(int wholesaleCost, int retailPrice, int modelYear, String make, String model, String color, String vin,
 			String vehicleType, boolean isLeasable, int leaseTerm, int maxMilesPerYear) {
-		this.setWholesaleCost(wholeSaleCost);
+		this.setWholesaleCost(wholesaleCost);
 		this.setRetailPrice(retailPrice);
 		this.setModelYear(modelYear);
 		this.setMake(make);
@@ -68,11 +68,11 @@ public class Vehicle {
 	}
 
 	public int getWholesaleCost() {
-		return wholeSaleCost;
+		return wholesaleCost;
 	}
 
-	public void setWholesaleCost(int wholeSaleCost) {
-		this.wholeSaleCost = wholeSaleCost;
+	public void setWholesaleCost(int wholesaleCost) {
+		this.wholesaleCost = wholesaleCost;
 	}
 
 	public int getRetailPrice() {
@@ -115,7 +115,7 @@ public class Vehicle {
 		this.vehicleType = vehicleType;
 	}
 
-	public boolean isActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
@@ -123,7 +123,7 @@ public class Vehicle {
 		this.isActive = isActive;
 	}
 
-	public boolean isLeasable() {
+	public boolean getIsLeasable() {
 		return isLeasable;
 	}
 
