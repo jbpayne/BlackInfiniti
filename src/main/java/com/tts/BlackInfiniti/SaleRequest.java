@@ -22,7 +22,7 @@ public class SaleRequest {
 	private String address;
 	private String typeOfSale;
 	private Long stockNumber;
-	private int wholeSaleCost; // Declares Dealer Wholesale price as integer (represents US Dollars)
+	private int wholesaleCost; // Declares Dealer Wholesale price as integer (represents US Dollars)
 	private int retailPrice; // Declares Dealer Retail price as integer (represents US Dollars)
 	private int modelYear; // Declares vehicle model year as integer (Takes 4 digit integer)
 	private String make; // Declares vehicle make as String
@@ -39,7 +39,7 @@ public class SaleRequest {
 		
 	}
 	
-	SaleRequest(Long id, String firstName, String lastName, String phoneNumber, String email, String address, String typeOfSale, Long stockNumber, int wholeSaleCost, int retailPrice, int modelYear, String make, String model, String color, String vin, String vehicleType, boolean isActive, boolean isLeasable, int leaseTerm, int maxMilesPerYear) {
+	SaleRequest(Long id, String firstName, String lastName, String phoneNumber, String email, String address, String typeOfSale, Long stockNumber, int wholesaleCost, int retailPrice, int modelYear, String make, String model, String color, String vin, String vehicleType, boolean isActive, boolean isLeasable, int leaseTerm, int maxMilesPerYear) {
 		this.setId(id);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);
@@ -48,7 +48,7 @@ public class SaleRequest {
 		this.setAddress(address);
 		this.setTypeOfSale(typeOfSale);
 		this.setStockNumber(stockNumber);
-		this.setWholeSaleCost(wholeSaleCost);
+		this.setWholesaleCost(wholesaleCost);
 		this.setRetailPrice(retailPrice);
 		this.setModelYear(modelYear);
 		this.setMake(make);
@@ -134,12 +134,12 @@ public class SaleRequest {
 		this.stockNumber = stockNumber;
 	}
 
-	public int getWholeSaleCost() {
-		return wholeSaleCost;
+	public int getWholesaleCost() {
+		return wholesaleCost;
 	}
 
-	public void setWholeSaleCost(int wholeSaleCost) {
-		this.wholeSaleCost = wholeSaleCost;
+	public void setWholesaleCost(int wholesaleCost) {
+		this.wholesaleCost = wholesaleCost;
 	}
 
 	public int getRetailPrice() {
