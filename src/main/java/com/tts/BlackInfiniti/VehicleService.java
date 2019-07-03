@@ -9,7 +9,7 @@ public interface VehicleService {
 
     List<Vehicle> findAll();
 
-    Optional<Vehicle> findOne(Long stockNumber);
+    Vehicle findOne(Long stockNumber);
 
     Vehicle saveVehicle(Vehicle vehicle);
 

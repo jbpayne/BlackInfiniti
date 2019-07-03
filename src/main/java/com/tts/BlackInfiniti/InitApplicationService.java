@@ -36,9 +36,11 @@ public class InitApplicationService {
 
 		clientService.saveClient(new Client("Abraham", "Lincoln", "555-867-5309", "HonestAbe@wh.gov", "1600 Pennsylvania Avenue"));
 		clientService.saveClient(new Client("George", "Washington", "555-704-1776", "Georgie@wh.gov", "1 Delaware Crossing"));
+		clientService.saveClient(new Client("Alexander", "Hamilton", "555-987-6543", "Broadway@treasury.gov", "100 42nd St"));
 
-		saleRequestService.saveSaleRequest(new SaleRequest(1L, "Abraham", "Lincoln", "555-867-5309", "HonestAbe@wh.gov", "1600 Pennsylvania Avenue", "FullSale", 4L, 61420, 64200, 2020, "Infiniti", "Q60", "Grey", "JN8AY4NJD774DHJ232", "CAR", true, true, 36, 12000));
-		saleRequestService.saveSaleRequest(new SaleRequest(2L, "George", "Washington", "555-704-1776", "Georgie@wh.gov", "1 Delaware Crossing", "FullSale", 1L, 37450, 39660, 2019, "Infiniti", "Q50", "Black", "JN8AY4ND7G3DS9CH2", "CAR", true, false, 0, 0));
+		saleRequestService.saveSaleRequest(new SaleRequest(1L, "FullSale", 4L));
+		saleRequestService.saveSaleRequest(new SaleRequest(2L, "FullSale", 1L));
+		saleRequestService.saveSaleRequest(new SaleRequest(3L, "FullSale", 3L));
 		
 		LOGGER.info("Initialization completed");
 	}
