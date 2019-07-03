@@ -21,8 +21,8 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public Optional<Vehicle> findOne(Long stockNumber) {
-        return vehicleRepository.findById(stockNumber);
+    public Vehicle findOne(Long stockNumber) {
+        return vehicleRepository.findById(stockNumber).get();
     }
 
     @Override

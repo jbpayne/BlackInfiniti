@@ -5,6 +5,7 @@ import com.tts.BlackInfiniti.Vehicle;
 import com.tts.BlackInfiniti.VehicleService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,12 @@ public class MainController {
     public String vehicleList(Model model) {
         model.addAttribute("vehicleList", vehicleService.findAll());
         return "vehicleList";
+    }
+
+    @RequestMapping(value={"/result","/result/{stockNumber}"}, method = RequestMethod.GET)
+    public String resultPage(Model model, @PathVariable(required = true, name = "stockNumber") Long stockNumber) {
+            model.addAttribute("result", vehicleService.findOne(stockNumber));
+        return "result";
     }
 
     @RequestMapping(value={"/vehicleEdit","/vehicleEdit/{stockNumber}"}, method = RequestMethod.GET)
@@ -60,6 +67,14 @@ public class MainController {
     public List<Vehicle> listVehicles() {
     	
     	return vehicleService.findAll();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value="/vehicle/{stockNumber}", produces="application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public Vehicle listVehicle(@PathVariable(required = false, name = "stockNumber") Long stockNumber) {
+    	
+    	return vehicleService.findOne(stockNumber);
     }
 
     @RequestMapping(value="/client")
@@ -98,6 +113,14 @@ public class MainController {
     public List<Client> listClients() {
     	
     	return clientService.findAll();
+    }
+
+    @CrossOrigin
+    @RequestMapping(value="/client/{id}", produces="application/json", method = RequestMethod.GET)
+    @ResponseBody
+    public Optional<Client> listClient(@PathVariable(required = false, name = "id") Long id) {
+    	
+    	return clientService.findOne(id);
     }
 
     @RequestMapping(value="/saleRequestDelete/{ticketID}", method = RequestMethod.GET)
