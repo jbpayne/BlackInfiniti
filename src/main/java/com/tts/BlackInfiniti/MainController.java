@@ -100,6 +100,23 @@ public class MainController {
         return "clientList";
     }
 
+    @RequestMapping(value={"/clientProfile","/clientProfile/{id}"}, method = RequestMethod.GET)
+    public String clientProfileForm(Model model, @PathVariable(required = false, name = "id") Long id) {
+        if (null != id) {
+            model.addAttribute("client", clientService.findOne(id));
+        } else {
+            model.addAttribute("client", new Client());
+        }
+        return "clientProfile";
+    }
+
+    @RequestMapping(value="/clientProfile", method = RequestMethod.POST)
+    public String clienProfile(Model model, Client client) {
+        clientService.saveClient(client);
+        model.addAttribute("clientList", clientService.findAll());
+        return "clientList";
+    }
+
     @RequestMapping(value="/clientDelete/{id}", method = RequestMethod.GET)
     public String ClientDelete(Model model, @PathVariable(required = true, name = "id") Long id) {
         clientService.deleteClient(id);
