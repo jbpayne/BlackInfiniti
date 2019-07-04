@@ -12,6 +12,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <Style>
+
       /*Div Border Testing
       {
         border: 1px solid red; 
@@ -20,19 +21,21 @@
       .buttonrow {
         flex-direction: row;
         column-count: 2;
-        font-size: 2px;
+        max-width: 70vw;
       }
       /* properties of the Car selected tag */
       .carselected {
-        width: 35rem;
+        width: 70vw;
         background-color: silver;
+        align-items: center;
       }
       /*Properties of each row tag */
       .row {
         align-items: center;
+        justify-content: space-around;
         display: flex;
         flex-direction: row;
-        max-width: 400px;
+        margin: 0.3rem;
       }
       .col {
         justify-content: center;
@@ -62,19 +65,22 @@
 
     <main class="cardo">
 
-      <div class="col">
-
-        <div class="row">
-          <!-- Meet your Infiniti-->
-          Meet your New Infiniti
+          <div class="result">
+      <div class="row" style="min-width:94vw;">
+        <div class="col-md-12 text-center">
+          <h2 class="text-center">Meet your new Infiniti</h2>
         </div>
-        <div class="row">
-          <div class="col">
-            <!-- Vehicle Selected-->
+      </div>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="row">
+        <div class="col">
+          <!-- Vehicle Selected-->
             <img class="carselected" src="/img/q60.png">
-          </div>
+<!--          <img src=img/color-slider/${vehicle.modelName}/${colorImageNum}.jpeg> -->
         </div>
-      <div th:each="result : ${result}" class="row">
+      </div>
+      <div th:each="result : ${result}" class="row" style="max-width:70vw;font-size:1.4rem;margin-left:12vw;margin-right:12vw;">
         <!--Vehicle Information -->
         <div th:text="${result.modelYear}" class="col">
             Year
@@ -88,23 +94,25 @@
           <div th:text="${#numbers.formatCurrency(result.retailPrice)}" class="col">
             Price
           </div>
+      </div>
+      </div>
+      </div>
+      <div class="row buttonrow" style="margin-top:1rem!important;margin-left:12vw;margin-right:12vw;">
+        <!--Buttons  Row-->
+        <div class="col-md-4">
+          <a href="/clientProfile"><button type="button" class="btn btn-outline-secondary col-md-12">I Want it!</button></a>
         </div>
-        <div class="buttonrow">
-          <!--Buttons  Row-->
-          <div class="col">
-            <a href="/clientProfile"><button font-size height="10px" type="button" class="btn-lg btn-secondary">I Want it!</button></a>
-          </div>
-          <div class="col">
-            <a href="welcome.html"><button height="10px" type="button" class="btn-lg btn-secondary">Let's Start
-                Over!</button></a>
-          </div>
-
+        <div class="col-md-4">
+          <a href="/welcome"><button type="button" class="btn btn-outline-secondary col-md-12">Let's Start Over...</button></a>
         </div>
       </div>
+    </div>
+      
     </main>
 
+  <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated progress-gray" role="progressbar"
-      aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width: 67%"></div>
+      aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
   </div>
 
 
