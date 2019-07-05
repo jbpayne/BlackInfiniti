@@ -103,12 +103,8 @@ public class MainController {
     @RequestMapping(value="/welcome", method = RequestMethod.GET)
     public String welcomePage (){
     	return "welcome";
-    
+  
     }
-   
-    
-    
-    
 
     @RequestMapping(value={"/clientProfile","/clientProfile/{id}"}, method = RequestMethod.GET)
     public String clientProfileForm(Model model, @PathVariable(required = false, name = "id") Long id) {
