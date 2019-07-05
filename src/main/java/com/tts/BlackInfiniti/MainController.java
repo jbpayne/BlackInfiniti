@@ -103,12 +103,37 @@ public class MainController {
     @RequestMapping(value="/welcome", method = RequestMethod.GET)
     public String welcomePage (){
     	return "welcome";
-    
+  
     }
-   
+
+    @RequestMapping(value="/confirmation", method = RequestMethod.GET)
+    public String confirmation (){
+    	return "confirmation";
+  
+    }
+
+    //requestMapping for SelectVehicleSlider. This will need to be refactored with proper code.
+
+    @RequestMapping(value="/SelectVehicleSlider", method = RequestMethod.GET)
+    public String SelectVehicleSlider (){
+    	return "SelectVehicleSlider";
+  
+    }
+
+    //requestMapping for SelectVehicleSlider. This will need to be refactored with proper code.
+
+    @RequestMapping(value="/SelectVehicle", method = RequestMethod.GET)
+      public String SelectVehicle (){
+        return "SelectVehicle";
     
+     }  
     
-    
+    //requestMapping for Appointment Screen. This explicitly needs to be refactored. 
+    @RequestMapping(value="/AppointmentScreen", method = RequestMethod.GET)
+    public String AppointmentScreen (){
+    	return "AppointmentScreen";
+  
+    }
 
     @RequestMapping(value={"/clientProfile","/clientProfile/{id}"}, method = RequestMethod.GET)
     public String clientProfileForm(Model model, @PathVariable(required = false, name = "id") Long id) {
