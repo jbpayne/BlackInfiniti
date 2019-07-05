@@ -28,7 +28,7 @@ public class InitApplicationService {
 		LOGGER.info("Initialize test data");
 		
 		vehicleService.saveVehicle(new Vehicle(37450, 39660, 2019, "Infiniti", "Q50", "Black", "JN8AY4ND7G3DS9CH2", "CAR", false, 0, 0));
-		vehicleService.saveVehicle(new Vehicle(37450, 39660, 2019, "Infiniti", "Q50", "Silver", "JN8C8865712F6VH21", "CAR", false, 0, 0));
+		vehicleService.saveVehicle(new Vehicle(37450, 39660, 2019, "Infiniti", "Q60", "Silver", "JN8C8865712F6VH21", "CAR", false, 0, 0));
 		vehicleService.saveVehicle(new Vehicle(39200, 42350, 2020, "Infiniti", "Q50", "Blue", "JN8AY4N297238GG23", "CAR", true, 36, 12000));
 		vehicleService.saveVehicle(new Vehicle(59320, 62667, 2019, "Infiniti", "Q60", "Red", "JN8A888SN66C279CF", "CAR", false, 0, 0));
 		vehicleService.saveVehicle(new Vehicle(59320, 62667, 2019, "Infiniti", "Q60", "Purple", "JN8AY4HH333LJLK23", "CAR", true, 36, 12000));
@@ -39,8 +39,9 @@ public class InitApplicationService {
 		clientService.saveClient(new Client("Alexander", "Hamilton", "555-987-6543", "Broadway@treasury.gov", "100 42nd St"));
 
 		saleRequestService.saveSaleRequest(new SaleRequest(1L, "FullSale", 4L));
-		saleRequestService.saveSaleRequest(new SaleRequest(2L, "FullSale", 1L));
-		saleRequestService.saveSaleRequest(new SaleRequest(3L, "FullSale", 3L));
+		saleRequestService.saveSaleRequest(new SaleRequest(2L, "Lease", 6L));
+		saleRequestService.saveSaleRequest(new SaleRequest(3L, "Finance", 3L));
+		saleRequestService.saveSaleRequest(new SaleRequest(3L, "FullSale", 1L));
 		
 		LOGGER.info("Initialization completed");
 	}
