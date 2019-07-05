@@ -127,6 +127,13 @@ public class MainController {
         return "SelectVehicle";
     
      }  
+    
+    //requestMapping for Appointment Screen. This explicitly needs to be refactored. 
+    @RequestMapping(value="/AppointmentScreen", method = RequestMethod.GET)
+    public String AppointmentScreen (){
+    	return "AppointmentScreen";
+  
+    }
 
     @RequestMapping(value={"/clientProfile","/clientProfile/{id}"}, method = RequestMethod.GET)
     public String clientProfileForm(Model model, @PathVariable(required = false, name = "id") Long id) {
