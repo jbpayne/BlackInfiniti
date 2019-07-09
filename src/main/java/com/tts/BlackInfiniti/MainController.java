@@ -34,6 +34,8 @@ public class MainController {
     @RequestMapping(value={"/result","/result/{stockNumber}"}, method = RequestMethod.GET)
     public String resultPage(Model model, @PathVariable(required = true, name = "stockNumber") Long stockNumber) {
             model.addAttribute("result", vehicleService.findOne(stockNumber));
+            SaleRequest mySaleRequest = new SaleRequest(null, null, stockNumber);
+            saleRequestService.saveSaleRequest(mySaleRequest);
         return "result";
     }
 
@@ -135,21 +137,21 @@ public class MainController {
   
     }
 
-    @RequestMapping(value={"/clientProfile","/clientProfile/{id}"}, method = RequestMethod.GET)
-    public String clientProfileForm(Model model, @PathVariable(required = false, name = "id") Long id) {
-        if (null != id) {
-            model.addAttribute("client", clientService.findOne(id));
-        } else {
-            model.addAttribute("client", new Client());
-        }
+    @RequestMapping(value={"/clientProfile"}, method = RequestMethod.GET)
+    public String clientProfileForm(Model model) {
+        model.addAttribute("client", new Client());
         return "clientProfile";
     }
 
-    @RequestMapping(value="/clientProfile", method = RequestMethod.POST)
-    public String clienProfile(Model model, Client client) {
+    @RequestMapping(value="/clientProfile/{typeOfSale}", method = RequestMethod.POST)
+    public String clienProfile(Model model, @PathVariable(required = true, name = "typeOfSale") String typeOfSale, Client client) {
         clientService.saveClient(client);
-        model.addAttribute("clientList", clientService.findAll());
-        return "clientList";
+        Long nextTicketID = (long) saleRequestService.findAll().size();
+        SaleRequest mySaleRequest = saleRequestService.findOne(nextTicketID);
+        mySaleRequest.setId(client.getId());
+        mySaleRequest.setTypeOfSale(typeOfSale);
+        saleRequestService.saveSaleRequest(mySaleRequest);
+        return "AppointmentScreen";
     }
 
     @RequestMapping(value="/clientDelete/{id}", method = RequestMethod.GET)

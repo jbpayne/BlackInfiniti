@@ -21,8 +21,8 @@ public class SaleRequestServiceImpl implements SaleRequestService {
     }
 
     @Override
-    public Optional<SaleRequest> findOne(Long ticketID) {
-        return saleRequestRepository.findById(ticketID);
+    public SaleRequest findOne(Long ticketID) {
+        return saleRequestRepository.findById(ticketID).get();
     }
 
     @Override

@@ -9,7 +9,7 @@ public interface SaleRequestService {
 
     List<SaleRequest> findAll();
 
-    Optional<SaleRequest> findOne(Long ticketID);
+    SaleRequest findOne(Long ticketID);
 
     SaleRequest saveSaleRequest(SaleRequest saleRequest);
 
